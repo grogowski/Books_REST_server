@@ -7,11 +7,11 @@ public interface BookService {
 
     public List<Book> getList();
 
-    public Book getBookById(long id);
+    public Book getBookById(Long id);
 
     public void updateBook(Book b);
 
-    public void deleteBook(long id);
+    public void deleteBook(Long id);
 
     public void addBook(Book b);
 }

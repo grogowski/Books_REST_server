@@ -1,8 +1,16 @@
 package pl.grogowski.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Book {
 
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String isbn;
     private String title;
     private String author;
@@ -11,7 +19,7 @@ public class Book {
 
     public Book(){};
 
-    public Book(long id, String isbn, String title, String author, String publisher, String type) {
+    public Book(Long id, String isbn, String title, String author, String publisher, String type) {
         this.id = id;
         this.isbn = isbn;
         this.title = title;
@@ -20,7 +28,7 @@ public class Book {
         this.type = type;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -44,7 +52,7 @@ public class Book {
         return type;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 }

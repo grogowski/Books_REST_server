@@ -25,17 +25,18 @@ public class MemoryBookService implements BookService{
         return list;
     }
 
-    public void setList(List<Book> list) {
-        this.list = list;
-    }
-
-    public Book getBookById(long id) {
+    @Override
+    public Book getBookById(Long id) {
         for (Book b:list) {
-            if (b.getId()==id) {
+            if (b.getId().equals(id)) {
                 return b;
             }
         }
         return null;
+    }
+
+    public void setList(List<Book> list) {
+        this.list = list;
     }
 
     public void updateBook(Book b) {
@@ -51,11 +52,12 @@ public class MemoryBookService implements BookService{
         }
     }
 
-    public void deleteBook(long id) {
+    @Override
+    public void deleteBook(Long id) {
         Iterator<Book> iterator = list.iterator();
         while (iterator.hasNext()) {
             Book b = iterator.next();
-            if (b.getId()==id) {
+            if (b.getId().equals(id)) {
                 iterator.remove();
                 break;
             }
